@@ -93,18 +93,9 @@ const CartView: React.FC<CartViewProps> = ({ onClose }) => {
           </div>
         </div>
         
-        <div className="grid grid-cols-2 gap-4 mt-6">
-          <Button variant="outline" onClick={clearCart}>
+        <div className="mt-6">
+          <Button variant="outline" onClick={clearCart} className="w-full">
             Clear Cart
-          </Button>
-          <Button 
-            className="bg-restaurant-primary hover:bg-restaurant-primary/90"
-            onClick={() => {
-              alert('This would normally proceed to order confirmation, but payment functionality is not implemented.');
-              if (onClose) onClose();
-            }}
-          >
-            Place Order
           </Button>
         </div>
       </div>
