@@ -33,7 +33,7 @@ const Header: React.FC<HeaderProps> = ({ toggleMobileMenu }) => {
             <h1 className="text-xl font-bold text-restaurant-primary">Bella Cucina</h1>
           </div>
 
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center">
             <div className="hidden md:flex relative">
               <Search className="absolute left-2 top-2.5 h-4 w-4 text-gray-400" />
               <Input
@@ -42,10 +42,6 @@ const Header: React.FC<HeaderProps> = ({ toggleMobileMenu }) => {
                 onChange={handleSearch}
               />
             </div>
-
-            <Button variant="default" className="bg-restaurant-primary hover:bg-restaurant-primary/90">
-              Order Now
-            </Button>
           </div>
         </div>
         

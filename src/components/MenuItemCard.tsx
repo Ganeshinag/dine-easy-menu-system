@@ -1,8 +1,6 @@
 
 import React from "react";
-import { Card, CardContent, CardFooter } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Plus } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
 import { MenuItem } from "@/contexts/MenuContext";
 
 interface MenuItemCardProps {
@@ -24,13 +22,8 @@ const MenuItemCard: React.FC<MenuItemCardProps> = ({ item }) => {
           <h3 className="font-bold text-lg">{item.name}</h3>
           <span className="font-bold text-restaurant-primary">${item.price.toFixed(2)}</span>
         </div>
-        <p className="text-gray-600 text-sm mt-2 line-clamp-2">{item.description}</p>
+        <p className="text-gray-600 text-sm mt-2">{item.description}</p>
       </CardContent>
-      <CardFooter className="p-4 pt-0">
-        <Button className="w-full bg-restaurant-secondary hover:bg-restaurant-secondary/90 text-white">
-          <Plus className="mr-2 h-4 w-4" /> Add to Order
-        </Button>
-      </CardFooter>
     </Card>
   );
 };
