@@ -1,6 +1,7 @@
 # Welcome to your Lovable project
 ## Webpage ##
-** URL**: https://dine-easy-menu-system.lovable.app/
+** URL V1**: https://dine-easy-menu-system.lovable.app/
+** URL V2**: https://dine-easy-menu-system.lovable.app/
 ## Project info
 
 **URL**: https://lovable.dev/projects/f6713f5b-c5e6-4dfb-86b9-5125a21d28ea
