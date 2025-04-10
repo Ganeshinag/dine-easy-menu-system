@@ -13,6 +13,13 @@ interface CartViewProps {
 const CartView: React.FC<CartViewProps> = ({ onClose }) => {
   const { cart, removeFromCart, updateCartItemQuantity, clearCart, cartTotal } = useMenu();
 
+  // GST calculations (assuming 18% total GST - 9% CGST and 9% SGST)
+  const gstRate = 0.18;
+  const baseAmount = cartTotal / (1 + gstRate);
+  const totalGST = cartTotal - baseAmount;
+  const cgst = totalGST / 2;
+  const sgst = totalGST / 2;
+
   if (cart.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center h-full">
@@ -87,6 +94,19 @@ const CartView: React.FC<CartViewProps> = ({ onClose }) => {
         <Separator className="mb-4" />
         
         <div className="space-y-2">
+          <div className="flex justify-between text-sm">
+            <span className="text-gray-500">Subtotal</span>
+            <span>${baseAmount.toFixed(2)}</span>
+          </div>
+          <div className="flex justify-between text-sm">
+            <span className="text-gray-500">CGST (9%)</span>
+            <span>${cgst.toFixed(2)}</span>
+          </div>
+          <div className="flex justify-between text-sm">
+            <span className="text-gray-500">SGST (9%)</span>
+            <span>${sgst.toFixed(2)}</span>
+          </div>
+          <Separator className="my-2" />
           <div className="flex justify-between">
             <span className="text-base font-medium">Total</span>
             <span className="text-base font-bold">${cartTotal.toFixed(2)}</span>
