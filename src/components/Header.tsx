@@ -1,22 +1,16 @@
 
-import React, { useState } from "react";
-import { Menu, Search, ShoppingCart } from "lucide-react";
+import React from "react";
+import { Menu, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useMenu } from "@/contexts/MenuContext";
-import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
-import CartView from "@/components/CartView";
-import { Badge } from "@/components/ui/badge";
 
 interface HeaderProps {
   toggleMobileMenu: () => void;
 }
 
 const Header: React.FC<HeaderProps> = ({ toggleMobileMenu }) => {
-  const { setSearchTerm, cart } = useMenu();
-  const [cartOpen, setCartOpen] = useState(false);
-
-  const cartItemCount = cart.reduce((total, item) => total + item.quantity, 0);
+  const { setSearchTerm } = useMenu();
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
@@ -39,7 +33,7 @@ const Header: React.FC<HeaderProps> = ({ toggleMobileMenu }) => {
             <h1 className="text-xl font-bold text-restaurant-primary">Bella Cucina</h1>
           </div>
 
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center">
             <div className="hidden md:flex relative">
               <Search className="absolute left-2 top-2.5 h-4 w-4 text-gray-400" />
               <Input
@@ -48,26 +42,6 @@ const Header: React.FC<HeaderProps> = ({ toggleMobileMenu }) => {
                 onChange={handleSearch}
               />
             </div>
-
-            <Sheet open={cartOpen} onOpenChange={setCartOpen}>
-              <SheetTrigger asChild>
-                <Button variant="outline" size="icon" className="relative">
-                  <ShoppingCart className="h-5 w-5" />
-                  {cartItemCount > 0 && (
-                    <Badge className="absolute -top-2 -right-2 bg-restaurant-primary">
-                      {cartItemCount}
-                    </Badge>
-                  )}
-                  <span className="sr-only">Open cart</span>
-                </Button>
-              </SheetTrigger>
-              <SheetContent side="right" className="w-[350px] sm:w-[450px]">
-                <SheetHeader>
-                  <SheetTitle>Check Cart</SheetTitle>
-                </SheetHeader>
-                <CartView onClose={() => setCartOpen(false)} />
-              </SheetContent>
-            </Sheet>
           </div>
         </div>
         

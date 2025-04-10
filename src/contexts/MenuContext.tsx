@@ -12,11 +12,6 @@ export type MenuItem = {
   tags?: string[];
 };
 
-export type CartItem = {
-  menuItem: MenuItem;
-  quantity: number;
-};
-
 export type MenuCategory = {
   id: string;
   name: string;
@@ -31,12 +26,6 @@ type MenuContextType = {
   searchTerm: string;
   setSearchTerm: (term: string) => void;
   filteredItems: MenuItem[];
-  cart: CartItem[];
-  addToCart: (item: MenuItem) => void;
-  removeFromCart: (itemId: string) => void;
-  updateCartItemQuantity: (itemId: string, quantity: number) => void;
-  clearCart: () => void;
-  cartTotal: number;
 };
 
 const defaultMenuContext: MenuContextType = {
@@ -47,12 +36,6 @@ const defaultMenuContext: MenuContextType = {
   searchTerm: "",
   setSearchTerm: () => {},
   filteredItems: [],
-  cart: [],
-  addToCart: () => {},
-  removeFromCart: () => {},
-  updateCartItemQuantity: () => {},
-  clearCart: () => {},
-  cartTotal: 0,
 };
 
 const MenuContext = createContext<MenuContextType>(defaultMenuContext);
@@ -163,7 +146,6 @@ export const MenuProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   const [categories] = useState<MenuCategory[]>(sampleCategories);
   const [currentCategory, setCurrentCategory] = useState<string>("all");
   const [searchTerm, setSearchTerm] = useState<string>("");
-  const [cart, setCart] = useState<CartItem[]>([]);
   
   // Filter menu items based on category and search term
   const filteredItems = menuItems.filter((item) => {
@@ -174,49 +156,6 @@ export const MenuProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     return matchesCategory && (searchTerm === "" || matchesSearch);
   });
 
-  // Cart operations
-  const addToCart = (item: MenuItem) => {
-    setCart(prevCart => {
-      const existingItemIndex = prevCart.findIndex(cartItem => cartItem.menuItem.id === item.id);
-      
-      if (existingItemIndex >= 0) {
-        // Item already exists in cart, increment quantity
-        const updatedCart = [...prevCart];
-        updatedCart[existingItemIndex].quantity += 1;
-        return updatedCart;
-      } else {
-        // Item doesn't exist in cart, add it
-        return [...prevCart, { menuItem: item, quantity: 1 }];
-      }
-    });
-  };
-
-  const removeFromCart = (itemId: string) => {
-    setCart(prevCart => prevCart.filter(item => item.menuItem.id !== itemId));
-  };
-
-  const updateCartItemQuantity = (itemId: string, quantity: number) => {
-    if (quantity <= 0) {
-      removeFromCart(itemId);
-      return;
-    }
-    
-    setCart(prevCart => 
-      prevCart.map(item => 
-        item.menuItem.id === itemId ? { ...item, quantity } : item
-      )
-    );
-  };
-
-  const clearCart = () => {
-    setCart([]);
-  };
-
-  // Calculate total price of items in cart
-  const cartTotal = cart.reduce((total, item) => {
-    return total + (item.menuItem.price * item.quantity);
-  }, 0);
-
   return (
     <MenuContext.Provider
       value={{
@@ -226,13 +165,7 @@ export const MenuProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
         setCurrentCategory,
         searchTerm,
         setSearchTerm,
-        filteredItems,
-        cart,
-        addToCart,
-        removeFromCart,
-        updateCartItemQuantity,
-        clearCart,
-        cartTotal
+        filteredItems
       }}
     >
       {children}
