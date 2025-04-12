@@ -24,24 +24,15 @@ const Index = () => {
         <Header toggleMobileMenu={toggleMobileMenu} />
         
         <main className="container mx-auto px-4 py-8 flex-grow">
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-            {/* Sidebar for larger screens - empty now that QR code is removed */}
-            <div className="hidden lg:block lg:col-span-1">
-              <div className="space-y-6 sticky top-24">
-                {/* Sidebar content removed */}
-              </div>
+          {/* Use full width for all content since sidebar is removed */}
+          <div>
+            <FeaturedItems />
+            
+            <div className="sticky top-[73px] bg-gray-50 z-10 py-2">
+              <CategoryMenu />
             </div>
             
-            {/* Main content */}
-            <div className="lg:col-span-3">
-              <FeaturedItems />
-              
-              <div className="sticky top-[73px] bg-gray-50 z-10 py-2">
-                <CategoryMenu />
-              </div>
-              
-              <MenuGrid />
-            </div>
+            <MenuGrid />
           </div>
         </main>
         
