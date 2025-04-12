@@ -5,12 +5,14 @@ import Header from "@/components/Header";
 import CategoryMenu from "@/components/CategoryMenu";
 import MenuGrid from "@/components/MenuGrid";
 import FeaturedItems from "@/components/FeaturedItems";
-import QRCodeGenerator from "@/components/QRCodeGenerator";
+import RestaurantInfo from "@/components/RestaurantInfo";
 import Footer from "@/components/Footer";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const Index = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const isMobile = useIsMobile();
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
@@ -23,10 +25,10 @@ const Index = () => {
         
         <main className="container mx-auto px-4 py-8 flex-grow">
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-            {/* Sidebar for larger screens */}
+            {/* Sidebar for larger screens - empty now that QR code is removed */}
             <div className="hidden lg:block lg:col-span-1">
               <div className="space-y-6 sticky top-24">
-                <QRCodeGenerator />
+                {/* Sidebar content removed */}
               </div>
             </div>
             
@@ -43,13 +45,14 @@ const Index = () => {
           </div>
         </main>
         
-        <Footer />
+        {/* Only show footer on desktop */}
+        {!isMobile && <Footer />}
         
-        {/* Mobile sidebar using Sheet component */}
+        {/* Mobile sidebar */}
         <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
           <SheetContent side="left" className="w-[300px] sm:w-[350px]">
             <div className="py-6 space-y-6">
-              <QRCodeGenerator />
+              <RestaurantInfo />
             </div>
           </SheetContent>
         </Sheet>
