@@ -48,24 +48,24 @@ const sampleMenuItems: MenuItem[] = [
     id: "1",
     name: "Classic Margherita Pizza",
     description: "Fresh mozzarella, tomato sauce, and basil on our signature crust",
-    price: 12.99,
+    price: 499,
     image: "https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8bWFyZ2hlcml0YSUyMHBpenphfGVufDB8fDB8fHww",
-    category: "pizza",
+    category: "veg",
     featured: true,
   },
   {
     id: "2",
-    name: "Pepperoni Pizza",
-    description: "Generous layers of pepperoni over melted cheese",
-    price: 14.99,
+    name: "Chicken Tikka Pizza",
+    description: "Generous layers of spicy chicken tikka over melted cheese",
+    price: 599,
     image: "https://images.unsplash.com/photo-1628840042765-356cda07504e?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGVwcGVyb25pJTIwcGl6emF8ZW58MHx8MHx8fDA%3D",
-    category: "pizza",
+    category: "non-veg",
   },
   {
     id: "3",
     name: "Caesar Salad",
     description: "Crisp romaine with our house-made dressing, croutons, and parmesan",
-    price: 9.99,
+    price: 349,
     image: "https://images.unsplash.com/photo-1546793665-c74683f339c1?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Y2Flc2FyJTIwc2FsYWR8ZW58MHx8MHx8fDA%3D",
     category: "salads",
   },
@@ -73,42 +73,42 @@ const sampleMenuItems: MenuItem[] = [
     id: "4",
     name: "Pasta Carbonara",
     description: "Creamy egg-based sauce with pancetta and black pepper",
-    price: 16.99,
+    price: 499,
     image: "https://images.unsplash.com/photo-1612874742237-6526221588e3?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2FyYm9uYXJhfGVufDB8fDB8fHww",
-    category: "pasta",
+    category: "italian",
     featured: true,
   },
   {
     id: "5",
-    name: "Tiramisu",
-    description: "Coffee-soaked ladyfingers with mascarpone cream",
-    price: 8.99,
+    name: "Gulab Jamun",
+    description: "Sweet milk solid dumplings, soaked in sugar syrup",
+    price: 299,
     image: "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8dGlyYW1pc3V8ZW58MHx8MHx8fDA%3D",
-    category: "desserts",
+    category: "chef-specials",
   },
   {
     id: "6",
-    name: "Caprese Salad",
-    description: "Fresh tomatoes, mozzarella, and basil with balsamic glaze",
-    price: 10.99,
+    name: "Garden Fresh Salad",
+    description: "Fresh vegetables, mozzarella, and herbs with balsamic glaze",
+    price: 349,
     image: "https://images.unsplash.com/photo-1608897013039-887f21d8c804?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y2FwcmVzZSUyMHNhbGFkfGVufDB8fDB8fHww",
     category: "salads",
   },
   {
     id: "7",
-    name: "Spaghetti Bolognese",
-    description: "Our slow-simmered meat sauce over al dente spaghetti",
-    price: 15.99,
+    name: "Butter Chicken with Naan",
+    description: "Our signature creamy tomato chicken curry with freshly baked naan",
+    price: 599,
     image: "https://images.unsplash.com/photo-1622973536968-3ead9e780960?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c3BhZ2hldHRpJTIwYm9sb2duZXNlfGVufDB8fDB8fHww",
-    category: "pasta",
+    category: "non-veg",
   },
   {
     id: "8",
-    name: "Chocolate Lava Cake",
-    description: "Warm chocolate cake with a molten center, served with vanilla ice cream",
-    price: 9.99,
+    name: "Masala Chai",
+    description: "Traditional Indian spiced tea with milk",
+    price: 149,
     image: "https://images.unsplash.com/photo-1617305855058-336d24456869?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2hvY29sYXRlJTIwbGF2YSUyMGNha2V8ZW58MHx8MHx8fDA%3D",
-    category: "desserts",
+    category: "drinks",
     featured: true,
   }
 ];
@@ -120,14 +120,24 @@ const sampleCategories: MenuCategory[] = [
     description: "Browse our complete menu"
   },
   {
-    id: "pizza",
-    name: "Pizza",
-    description: "Our signature wood-fired pizzas"
+    id: "veg",
+    name: "Vegetarian",
+    description: "Plant-based dishes"
   },
   {
-    id: "pasta",
-    name: "Pasta",
-    description: "Handmade pasta dishes"
+    id: "non-veg",
+    name: "Non-Vegetarian",
+    description: "Meat and seafood specialties"
+  },
+  {
+    id: "chef-specials",
+    name: "Chef's Specials",
+    description: "Our chef's signature creations"
+  },
+  {
+    id: "italian",
+    name: "Italian",
+    description: "Authentic Italian cuisine"
   },
   {
     id: "salads",
@@ -135,9 +145,9 @@ const sampleCategories: MenuCategory[] = [
     description: "Fresh and crisp salads"
   },
   {
-    id: "desserts",
-    name: "Desserts",
-    description: "Sweet treats to finish your meal"
+    id: "drinks",
+    name: "Drinks",
+    description: "Refreshing beverages"
   }
 ];
 

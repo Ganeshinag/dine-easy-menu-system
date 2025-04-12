@@ -29,7 +29,7 @@ const FeaturedItems: React.FC = () => {
                     />
                     <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
                       <h3 className="font-bold text-white text-lg">{item.name}</h3>
-                      <p className="text-white/90 text-sm">${item.price.toFixed(2)}</p>
+                      <p className="text-white/90 text-sm">₹{item.price}</p>
                     </div>
                   </div>
                   <CardContent className="p-4">
