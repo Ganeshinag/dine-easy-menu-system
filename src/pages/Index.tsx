@@ -7,6 +7,7 @@ import MenuGrid from "@/components/MenuGrid";
 import RestaurantInfo from "@/components/RestaurantInfo";
 import FeaturedItems from "@/components/FeaturedItems";
 import QRCodeGenerator from "@/components/QRCodeGenerator";
+import Footer from "@/components/Footer";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 const Index = () => {
@@ -18,10 +19,10 @@ const Index = () => {
 
   return (
     <MenuProvider>
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen bg-gray-50 flex flex-col">
         <Header toggleMobileMenu={toggleMobileMenu} />
         
-        <main className="container mx-auto px-4 py-8">
+        <main className="container mx-auto px-4 py-8 flex-grow">
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
             {/* Sidebar for larger screens */}
             <div className="hidden lg:block lg:col-span-1">
@@ -43,6 +44,8 @@ const Index = () => {
             </div>
           </div>
         </main>
+        
+        <Footer />
         
         {/* Mobile sidebar using Sheet component */}
         <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
