@@ -4,7 +4,6 @@ import { MenuProvider } from "@/contexts/MenuContext";
 import Header from "@/components/Header";
 import CategoryMenu from "@/components/CategoryMenu";
 import MenuGrid from "@/components/MenuGrid";
-import RestaurantInfo from "@/components/RestaurantInfo";
 import FeaturedItems from "@/components/FeaturedItems";
 import QRCodeGenerator from "@/components/QRCodeGenerator";
 import Footer from "@/components/Footer";
@@ -27,7 +26,6 @@ const Index = () => {
             {/* Sidebar for larger screens */}
             <div className="hidden lg:block lg:col-span-1">
               <div className="space-y-6 sticky top-24">
-                <RestaurantInfo />
                 <QRCodeGenerator />
               </div>
             </div>
@@ -51,7 +49,6 @@ const Index = () => {
         <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
           <SheetContent side="left" className="w-[300px] sm:w-[350px]">
             <div className="py-6 space-y-6">
-              <RestaurantInfo />
               <QRCodeGenerator />
             </div>
           </SheetContent>

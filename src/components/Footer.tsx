@@ -12,8 +12,8 @@ const Footer: React.FC = () => {
             <MapPin className="h-6 w-6 text-restaurant-secondary mr-3 flex-shrink-0 mt-1" />
             <div>
               <h3 className="font-bold text-lg mb-2">Address</h3>
-              <p className="text-gray-300">123 Pasta Street</p>
-              <p className="text-gray-300">Foodville, FC 12345</p>
+              <p className="text-gray-300">123 Spice Avenue</p>
+              <p className="text-gray-300">Flavortown, FM 54321</p>
             </div>
           </div>
 
@@ -25,7 +25,7 @@ const Footer: React.FC = () => {
               <p className="text-gray-300">Phone: (123) 456-7890</p>
               <div className="flex items-center mt-1">
                 <Mail className="h-4 w-4 text-restaurant-secondary mr-2" />
-                <p className="text-gray-300">Email: info@bellacucina.com</p>
+                <p className="text-gray-300">Email: info@masalamatrix.com</p>
               </div>
             </div>
           </div>

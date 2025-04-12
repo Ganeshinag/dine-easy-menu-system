@@ -9,22 +9,18 @@ interface MenuItemCardProps {
 
 const MenuItemCard: React.FC<MenuItemCardProps> = ({ item }) => {
   return (
-    <Card className="overflow-hidden transition-all hover:shadow-md">
-      <div className="aspect-video w-full overflow-hidden">
+    <div className="flex flex-col items-center text-center">
+      <div className="relative w-full aspect-square overflow-hidden rounded-full mb-3">
         <img
           src={item.image}
           alt={item.name}
-          className="h-full w-full object-cover transition-transform hover:scale-105"
+          className="h-full w-full object-cover"
         />
       </div>
-      <CardContent className="p-4">
-        <div className="flex justify-between">
-          <h3 className="font-bold text-lg">{item.name}</h3>
-          <span className="font-bold text-restaurant-primary">${item.price.toFixed(2)}</span>
-        </div>
-        <p className="text-gray-600 text-sm mt-2">{item.description}</p>
-      </CardContent>
-    </Card>
+      <h3 className="font-bold text-lg">{item.name}</h3>
+      <p className="text-gray-600 text-sm my-1 line-clamp-2">{item.description}</p>
+      <span className="font-bold text-red-600 mt-1">${item.price.toFixed(2)}</span>
+    </div>
   );
 };
 

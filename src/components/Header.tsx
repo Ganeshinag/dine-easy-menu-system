@@ -30,7 +30,10 @@ const Header: React.FC<HeaderProps> = ({ toggleMobileMenu }) => {
               <Menu className="h-5 w-5" />
               <span className="sr-only">Toggle menu</span>
             </Button>
-            <h1 className="text-xl font-bold text-restaurant-primary">Bella Cucina</h1>
+            <div className="flex flex-col">
+              <h1 className="text-xl font-bold text-restaurant-primary">MASALA MATRIX</h1>
+              <p className="text-sm text-gray-600">Where Flavors Collide</p>
+            </div>
           </div>
 
           <div className="flex items-center">
