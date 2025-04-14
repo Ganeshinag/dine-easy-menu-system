@@ -24,7 +24,6 @@ const Index = () => {
         <Header toggleMobileMenu={toggleMobileMenu} />
         
         <main className="container mx-auto px-4 py-8 flex-grow">
-          {/* Use full width for all content since sidebar is removed */}
           <div>
             <FeaturedItems />
             

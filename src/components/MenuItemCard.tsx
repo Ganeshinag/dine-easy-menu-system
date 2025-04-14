@@ -10,7 +10,7 @@ interface MenuItemCardProps {
 const MenuItemCard: React.FC<MenuItemCardProps> = ({ item }) => {
   return (
     <div className="flex flex-col items-center text-center">
-      <div className="relative w-full max-w-[180px] aspect-square overflow-hidden rounded-full mb-3 mx-auto">
+      <div className="relative w-full max-w-[150px] sm:max-w-[180px] aspect-square overflow-hidden rounded-full mb-3 mx-auto">
         <img
           src={item.image}
           alt={item.name}

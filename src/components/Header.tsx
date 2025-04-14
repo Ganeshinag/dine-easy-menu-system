@@ -30,9 +30,12 @@ const Header: React.FC<HeaderProps> = ({ toggleMobileMenu }) => {
               <Menu className="h-5 w-5" />
               <span className="sr-only">Toggle menu</span>
             </Button>
-            <div className="flex flex-col">
-              <h1 className="text-xl font-bold text-restaurant-primary">MASALA MATRIX</h1>
-              <p className="text-sm text-gray-600">Where Flavors Collide</p>
+            <div className="h-12 w-auto">
+              <img 
+                src="/lovable-uploads/262baeff-66b0-4244-b4fe-9f503b38e444.png" 
+                alt="Masala Matrix Logo" 
+                className="h-full w-auto"
+              />
             </div>
           </div>
 
